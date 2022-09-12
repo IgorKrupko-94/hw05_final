@@ -14,4 +14,3 @@ class CorePageTests(TestCase):
         self.assertTemplateUsed(response,
                                 'core/404.html',
                                 msg_prefix='Используется неверный шаблон')
-       
