@@ -10,7 +10,7 @@ from django.test import TestCase, Client, override_settings
 from django.urls import reverse
 
 from ..models import Group, Post, Follow
-from ..views import NUMBER_OF_POSTS
+from ..utils import NUMBER_OF_POSTS
 
 User = get_user_model()
 TEMP_MEDIA_ROOT = tempfile.mkdtemp(dir=settings.BASE_DIR)

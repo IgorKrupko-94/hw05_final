@@ -46,7 +46,8 @@ class Post(models.Model):
     image = models.ImageField(
         'Картинка',
         upload_to='posts/',
-        blank=True
+        blank=True,
+        help_text='Выберите картинку'
     )
 
     class Meta:
@@ -100,6 +101,12 @@ class Follow(models.Model):
     )
 
     class Meta:
+        constraints = [
+            models.CheckConstraint(
+                check=~models.Q(user=models.F('author')),
+                name='user_cannot_follow_yourself'
+            )
+        ]
         verbose_name = 'Подписка',
         verbose_name_plural = 'Подписки'
 
